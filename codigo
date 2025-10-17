@@ -46,53 +46,53 @@ public:
                 }
             }
 
-            if (!trE) break; // se detiene si no hay transición aplicable
+            if (!trE) break; 
         }
 
         cout << "Estado final: " << estadoActual << endl;
         cout << "Cinta final: ";
         for (char c : cinta)
-            if (c != '_') cout << c; // no mostrar el blanco final
+            if (c != '_') cout << c; 
         cout << endl;
     }
 };
 
 int main() {
     vector<Transiciones> trs = {
-        // --- q0: avanzar hasta el blanco ---
+        
         {"q0", '0', "q0", '0', DER},
         {"q0", '1', "q0", '1', DER},
-        {"q0", '_', "q1", '0', IZQ}, // agrega 0 (×2) y retrocede
+        {"q0", '_', "q1", '0', IZQ}, 
 
-        // --- q1: moverse a la izquierda ---
+    
         {"q1", '0', "q2", '0', DER},
         {"q1", '1', "q2", '1', DER},
         {"q1", '_', "q2", '_', DER},
 
-        // --- q2: sumar 1 (cambiar ese 0 por un 1) ---
+     
         {"q2", '0', "q3", '1', IZQ},
         {"q2", '1', "q3", '1', IZQ},
         {"q2", '_', "q3", '_', IZQ},
 
-        // --- q3: moverse a la izquierda ---
+       
         {"q3", '0', "q4", '0', IZQ},
         {"q3", '1', "q4", '1', IZQ},
         {"q3", '_', "q4", '_', IZQ},
 
-        // --- q4: volver a la derecha ---
+       
         {"q4", '0', "q5", '0', DER},
         {"q4", '1', "q5", '1', DER},
         {"q4", '_', "q5", '_', DER},
 
-        // --- q5: seguir moviéndose a la derecha ---
+     
         {"q5", '0', "q6", '0', DER},
         {"q5", '1', "q6", '1', DER},
         {"q5", '_', "q6", '_', DER},
 
-        // --- q6: moverse hasta el final y terminar ---
+  
         {"q6", '0', "q6", '0', DER},
         {"q6", '1', "q6", '1', DER},
-        {"q6", '_', "q7", '_', IZQ} // estado final
+        {"q6", '_', "q7", '_', IZQ} 
     };
 
     string entrada;
